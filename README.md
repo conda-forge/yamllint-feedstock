@@ -14,14 +14,15 @@ Summary: A linter for YAML files.
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/yamllint-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/yamllint-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/yamllint-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/yamllint-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/yamllint-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/yamllint-feedstock/branch/master)
+All platforms:
+[![noarch](https://img.shields.io/circleci/project/github/conda-forge/yamllint-feedstock/master.svg?label=noarch)](https://circleci.com/gh/conda-forge/yamllint-feedstock)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/yamllint/badges/version.svg)](https://anaconda.org/conda-forge/yamllint)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/yamllint/badges/downloads.svg)](https://anaconda.org/conda-forge/yamllint)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-yamllint-green.svg)](https://anaconda.org/conda-forge/yamllint) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/yamllint.svg)](https://anaconda.org/conda-forge/yamllint) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/yamllint.svg)](https://anaconda.org/conda-forge/yamllint) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/yamllint.svg)](https://anaconda.org/conda-forge/yamllint) |
 
 Installing yamllint
 ===================
