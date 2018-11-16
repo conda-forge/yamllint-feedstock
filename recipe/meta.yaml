@@ -1,6 +1,6 @@
 {% set name = "yamllint" %}
-{% set version = "1.11.1" %}
-{% set sha256 = "e9b7dec24921ef13180902e5dbcaae9157c773e3e3e2780ef77d3a4dd67d799f" %}
+{% set version = "1.13.0" %}
+{% set sha256 = "425287ae21320e876d6515cb2ccc0363ae7c6e17a711ef520cf4f579fdb7dfa5" %}
 
 package:
   name: {{ name|lower }}
@@ -13,7 +13,7 @@ source:
 
 build:
   noarch: python
-  number: 1
+  number: 0
   script: python -m pip install --no-deps --ignore-installed .
 
 requirements:
