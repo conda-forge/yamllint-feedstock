@@ -1,6 +1,6 @@
 {% set name = "yamllint" %}
-{% set version = "1.14.0" %}
-{% set sha256 = "c0a9b641c9f843901fc9261ed71b36f3968c9b04f4c26581cc836d0cabb62a75" %}
+{% set version = "1.15.0" %}
+{% set sha256 = "8f25759997acb42e52b96bf3af0b4b942e6516b51198bebd3402640102006af7" %}
 
 package:
   name: {{ name|lower }}
