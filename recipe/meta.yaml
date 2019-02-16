@@ -1,44 +1,56 @@
-{% set name = "yamllint" %}
-{% set version = "1.15.0" %}
-{% set sha256 = "8f25759997acb42e52b96bf3af0b4b942e6516b51198bebd3402640102006af7" %}
-
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: '{% set name = "yamllint" %}{{ name }}'
+  version: '{% set version = "1.15.0" %}{{ version }}'
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
+  # yamllint disable-line rule:line-length
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  sha256: 8f25759997acb42e52b96bf3af0b4b942e6516b51198bebd3402640102006af7
 
 build:
   noarch: python
-  number: 0
-  script: python -m pip install --no-deps --ignore-installed .
+  number: 1
+  script: "{{ PYTHON }} -m pip install --no-deps --ignore-installed ."
+  entry_points:
+    - yamllint=yamllint.cli:run
 
 requirements:
   host:
     - pip
     - python
-    - setuptools
   run:
+    - pathspec
     - python
     - pyyaml
 
 test:
+  source_files:
+    - tests
+  requires:
+    - pytest
   imports:
     - yamllint
-  requires:
-    - nose
+  commands:
+    - python -m pytest .  # [unix]
+    - yamllint --help
+    - yamllint --version
+    - cd {{ RECIPE_DIR }} && yamllint --strict --format parsable .
 
 about:
   home: https://github.com/adrienverge/yamllint
-  license: GPLv3
+  license: GPL-3.0-only
+  license_family: GPL
   license_file: LICENSE
   summary: 'A linter for YAML files.'
-  doc_url: https://yamllint.readthedocs.io/
-  dev_url: https://github.com/adrienverge/yamllint
+  doc_url: https://yamllint.readthedocs.io
+  doc_source_url: |
+    https://github.com/adrienverge/yamllint/blob/master/docs/index.rst
+  description: |
+    yamllint does not only check for syntax validity, but for weirdnesses like
+    key repetition and cosmetic problems such as lines length, trailing spaces,
+    indentation, etc.
 
 extra:
   recipe-maintainers:
     - proinsias
+    - bollwyvl
