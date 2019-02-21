@@ -7,12 +7,15 @@ About yamllint
 
 Home: https://github.com/adrienverge/yamllint
 
-Package license: GPLv3
+Package license: GPL-3.0-only
 
 Feedstock license: BSD 3-Clause
 
 Summary: A linter for YAML files.
 
+yamllint does not only check for syntax validity, but for weirdnesses like
+key repetition and cosmetic problems such as lines length, trailing spaces,
+indentation, etc.
 
 
 Current build status
@@ -113,5 +116,6 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@bollwyvl](https://github.com/bollwyvl/)
 * [@proinsias](https://github.com/proinsias/)
 
