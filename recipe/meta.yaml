@@ -1,4 +1,4 @@
-{% set version = "1.19.0" %}
+{% set version = "1.20.0" %}
 
 package:
   name: '{% set name = "yamllint" %}{{ name }}'
@@ -7,7 +7,7 @@ package:
 source:
   # yamllint disable-line rule:line-length
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 0260121ed6a428b98bbadb7b6b66e9cd00114382e3d7ad06fa80e0754414cf15
+  sha256: 76912b6262fd7e0815d7b14c4c2bb2642c754d0aa38f2d3e4b4e21c77872a3bf
 
 build:
   noarch: python
