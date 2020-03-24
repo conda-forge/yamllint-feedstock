@@ -1,18 +1,19 @@
-{% set version = "1.20.0" %}
+{% set name = "yamllint" %}
+{% set version = "1.21.0" %}
 
 package:
   name: '{% set name = "yamllint" %}{{ name }}'
-  version: '{{ version }}'
+  version: {{ version }}
 
 source:
   # yamllint disable-line rule:line-length
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 76912b6262fd7e0815d7b14c4c2bb2642c754d0aa38f2d3e4b4e21c77872a3bf
+  sha256: 7e1e698b3d344b64bc46cbe8c4df7dfdfe7c00ed1a8d1c851ecd5b552d93d193
 
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install --no-deps --ignore-installed ."
+  script: {{ PYTHON }} -m pip install --no-deps --ignore-installed .
   entry_points:
     - yamllint=yamllint.cli:run
 
@@ -44,7 +45,7 @@ about:
   license: GPL-3.0-only
   license_family: GPL
   license_file: LICENSE
-  summary: 'A linter for YAML files.'
+  summary: A linter for YAML files.
   doc_url: https://yamllint.readthedocs.io
   doc_source_url: |
     https://github.com/adrienverge/yamllint/blob/master/docs/index.rst
