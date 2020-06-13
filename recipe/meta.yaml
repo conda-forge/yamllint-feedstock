@@ -2,11 +2,10 @@
 {% set version = "1.23.0" %}
 
 package:
-  name: '{% set name = "yamllint" %}{{ name }}'
+  name: {{ name }}
   version: {{ version }}
 
 source:
-  # yamllint disable-line rule:line-length
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 59f3ff77f44e7f46be6aecdb985830f73a1c51e290b7082a7d38c2ae1940f4a9
 
@@ -30,15 +29,15 @@ test:
   source_files:
     - tests
   requires:
+    - pip
     - pytest
   imports:
     - yamllint
   commands:
-    - python -m pytest .  # [unix]
+    - python -m pip check
     - yamllint --help
     - yamllint --version
-    # the bot can't find the version for now
-    # - cd {{ RECIPE_DIR }} && yamllint --strict --format parsable .
+    - python -m pytest .  # [unix]
 
 about:
   home: https://github.com/adrienverge/yamllint
