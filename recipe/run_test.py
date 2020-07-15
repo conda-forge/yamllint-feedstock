@@ -32,4 +32,5 @@ skip_arg = "not ({})".format(" or ".join(locale_skips))
 
 
 if __name__ == "__main__":
-    pytest.main([".", "-k", skip_arg])
+    # TODO: potentially restore
+    pytest.main(["."]) #  , "-k", skip_arg])
