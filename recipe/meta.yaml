@@ -37,7 +37,9 @@ test:
     - python -m pip check
     - yamllint --help
     - yamllint --version
-    - python -m pytest .  # [unix]
+    # TODO: remove
+    - env | grep LC  # [unix]
+    - export LC_ALL="en_US.UTF-8" && export LC_CTYPE="en_US.UTF-8" && python -m pytest .  # [unix]
 
 about:
   home: https://github.com/adrienverge/yamllint
