@@ -37,7 +37,6 @@ test:
     - python -m pip check
     - yamllint --help
     - yamllint --version
-    - python -m pytest .  # [unix]
 
 about:
   home: https://github.com/adrienverge/yamllint
