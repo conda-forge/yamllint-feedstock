@@ -31,12 +31,14 @@ test:
   requires:
     - pip
     - pytest
+    - pytest-cov
   imports:
     - yamllint
   commands:
     - python -m pip check
     - yamllint --help
     - yamllint --version
+    - pytest --cov yamllint --cov-fail-under 97 .
 
 about:
   home: https://github.com/adrienverge/yamllint
