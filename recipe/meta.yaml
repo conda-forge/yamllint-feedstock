@@ -19,11 +19,12 @@ build:
 requirements:
   host:
     - pip
-    - python
+    - python >=3.5
   run:
     - pathspec >=0.5.3
-    - python
+    - python >=3.5
     - pyyaml
+    - setuptools
 
 test:
   source_files:
