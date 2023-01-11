@@ -1,28 +1,27 @@
-{% set name = "yamllint" %}
-{% set version = "1.28.0" %}
+{% set version = "1.29.0" %}
 
 package:
-  name: {{ name }}
+  name: yamllint
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 9e3d8ddd16d0583214c5fdffe806c9344086721f107435f68bad990e5a88826b
+  url: https://pypi.io/packages/source/y/yamllint/yamllint-{{ version }}.tar.gz
+  sha256: 66a755d5fbcbb8831f1a9568676329b5bac82c37995bcc9afd048b6459f9fa48
 
 build:
   noarch: python
   number: 0
   script: {{ PYTHON }} -m pip install --no-deps --ignore-installed .
   entry_points:
-    - yamllint=yamllint.cli:run
+    - yamllint = yamllint.cli:run
 
 requirements:
   host:
     - pip
-    - python >=3.5
+    - python >=3.7
   run:
     - pathspec >=0.5.3
-    - python >=3.5
+    - python >=3.7
     - pyyaml
     - setuptools
 
