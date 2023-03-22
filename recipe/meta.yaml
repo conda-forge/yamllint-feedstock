@@ -1,4 +1,4 @@
-{% set version = "1.29.0" %}
+{% set version = "1.30.0" %}
 
 package:
   name: yamllint
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/y/yamllint/yamllint-{{ version }}.tar.gz
-  sha256: 66a755d5fbcbb8831f1a9568676329b5bac82c37995bcc9afd048b6459f9fa48
+  sha256: 4f58f323aedda16189a489d183ecc25c66d7a9cc0fe88f61b650fef167b13190
 
 build:
   noarch: python
