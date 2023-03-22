@@ -1,11 +1,11 @@
-About yamllint
-==============
+About yamllint-feedstock
+========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/yamllint-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/adrienverge/yamllint
 
 Package license: GPL-3.0-only
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/yamllint-feedstock/blob/main/LICENSE.txt)
 
 Summary: A linter for YAML files.
 
