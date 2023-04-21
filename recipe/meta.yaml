@@ -23,7 +23,6 @@ requirements:
     - pathspec >=0.5.3
     - python >=3.7
     - pyyaml
-    - setuptools
 
 test:
   source_files:
@@ -35,7 +34,7 @@ test:
   imports:
     - yamllint
   commands:
-    - python -m pip check
+    - pip check
     - yamllint --help
     - yamllint --version
     - pytest --cov yamllint --cov-fail-under 97 .
