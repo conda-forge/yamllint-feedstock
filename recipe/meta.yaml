@@ -1,4 +1,4 @@
-{% set version = "1.30.0" %}
+{% set version = "1.31.0" %}
 
 package:
   name: yamllint
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/y/yamllint/yamllint-{{ version }}.tar.gz
-  sha256: 4f58f323aedda16189a489d183ecc25c66d7a9cc0fe88f61b650fef167b13190
+  sha256: 2d83f1d12f733e162a87e06b176149d7bb9c5bae4a9e5fce1c771d7f703f7a65
 
 build:
   noarch: python
@@ -23,7 +23,6 @@ requirements:
     - pathspec >=0.5.3
     - python >=3.7
     - pyyaml
-    - setuptools
 
 test:
   source_files:
@@ -35,7 +34,7 @@ test:
   imports:
     - yamllint
   commands:
-    - python -m pip check
+    - pip check
     - yamllint --help
     - yamllint --version
     - pytest --cov yamllint --cov-fail-under 97 .
