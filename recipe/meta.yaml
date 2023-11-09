@@ -38,7 +38,7 @@ test:
     - pip check
     - yamllint --help
     - yamllint --version
-    - pytest -vv --color=yes --cov=yamllint --cov-branch --cov-report=term-missing:skip-covered --cov-fail-under=97
+    - pytest -vv --color=yes --cov=yamllint --cov-branch --cov-report=term-missing:skip-covered --cov-fail-under=98
 
 about:
   home: https://github.com/adrienverge/yamllint
