@@ -18,10 +18,11 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.7
+    - python >=3.8
+    - setuptools >=61
   run:
     - pathspec >=0.5.3
-    - python >=3.7
+    - python >=3.8
     - pyyaml
 
 test:
@@ -37,7 +38,7 @@ test:
     - pip check
     - yamllint --help
     - yamllint --version
-    - pytest --cov yamllint --cov-fail-under 97 .
+    - pytest -vv --color=yes --cov=yamllint --cov-branch --cov-report=term-missing:skip-covered --cov-fail-under=97
 
 about:
   home: https://github.com/adrienverge/yamllint
