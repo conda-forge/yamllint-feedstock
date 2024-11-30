@@ -5,12 +5,12 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/y/yamllint/yamllint-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/y/yamllint/yamllint-{{ version }}.tar.gz
   sha256: 7a003809f88324fd2c877734f2d575ee7881dd9043360657cc8049c809eba6cd
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install --no-deps --no-build-isolation .
   entry_points:
     - yamllint = yamllint.cli:run
@@ -18,11 +18,11 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.8
+    - python {{ python_min }}
     - setuptools >=61
   run:
     - pathspec >=0.5.3
-    - python >=3.8
+    - python >={{ python_min }}
     - pyyaml
 
 test:
@@ -32,6 +32,7 @@ test:
     - pip
     - pytest
     - pytest-cov
+    - python {{ python_min }}
   imports:
     - yamllint
   commands:
