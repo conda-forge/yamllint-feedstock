@@ -1,0 +1,67 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/prefix-dev/recipe-format/main/schema.json
+schema_version: 1
+
+context:
+  version: 1.36.1
+
+package:
+  name: yamllint
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/y/yamllint/yamllint-${{ version }}.tar.gz
+  sha256: a287689daaafc301a80549b2d0170452ebfdcabd826e3fe3b4c66e322d4851fa
+
+build:
+  number: 0
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
+  python:
+    entry_points:
+      - yamllint = yamllint.cli:run
+
+requirements:
+  host:
+    - pip
+    - python ${{ python_min }}.*
+    - setuptools >=61
+  run:
+    - pathspec >=0.5.3
+    - python >=${{ python_min }}
+    - pyyaml
+
+tests:
+  - python:
+      pip_check: true
+      python_version: ${{ python_min }}.*
+      imports: yamllint
+  - files:
+      source:
+        - tests/
+    requirements:
+      run:
+        - pip
+        - pytest
+        - pytest-cov
+        - python ${{ python_min }}
+    script:
+      - pip check
+      - yamllint --help
+      - yamllint --version
+      - pytest -vv --color=yes --cov=yamllint --cov-branch --cov-report=term-missing:skip-covered --cov-fail-under=98
+
+about:
+  license: GPL-3.0-only
+  license_file: LICENSE
+  summary: A linter for YAML files.
+  homepage: https://github.com/adrienverge/yamllint
+  documentation: https://yamllint.readthedocs.io
+  description: |
+    yamllint does not only check for syntax validity, but for weirdnesses like
+    key repetition and cosmetic problems such as lines length, trailing spaces,
+    indentation, etc.
+
+extra:
+  recipe-maintainers:
+    - proinsias
+    - bollwyvl
