@@ -40,18 +40,21 @@ tests:
         - tests/
     requirements:
       run:
-        - pip
         - pytest
         - pytest-cov
         - python ${{ python_min }}
+        - if: win
+          then: m2-grep
     script:
-      - pip check
       - yamllint --help
       - yamllint --version
-      - pytest -vv --color=yes --cov=yamllint --cov-branch --cov-report=term-missing:skip-covered --cov-fail-under=98
+      - yamllint --version | grep -iE "${{ version | replace('.', '\\.') }}"
+      - echo "" >> tests/__init__.py
+      - coverage run --source=yamllint --branch -m pytest -vv --color=yes --tb=long
+      - coverage report --show-missing --skip-covered --fail-under=98
 
 about:
-  license: GPL-3.0-only
+  license: GPL-3.0-or-later
   license_file: LICENSE
   summary: A linter for YAML files.
   homepage: https://github.com/adrienverge/yamllint
