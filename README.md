@@ -5,7 +5,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/yamllint-feedst
 
 Home: https://github.com/adrienverge/yamllint
 
-Package license: GPL-3.0-only
+Package license: GPL-3.0-or-later
 
 Summary: A linter for YAML files.
 
