@@ -5,16 +5,15 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/yamllint-feedst
 
 Home: https://github.com/adrienverge/yamllint
 
-Package license: GPL-3.0-only
+Package license: GPL-3.0-or-later
 
 Summary: A linter for YAML files.
 
-Documentation: https://yamllint.readthedocs.io
+Documentation: https://yamllint.readthedocs.io/
 
 yamllint does not only check for syntax validity, but for weirdnesses like
 key repetition and cosmetic problems such as lines length, trailing spaces,
 indentation, etc.
-
 
 Current build status
 ====================
