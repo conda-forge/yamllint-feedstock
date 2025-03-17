@@ -2,25 +2,20 @@
 schema_version: 1
 
 context:
-  version: 1.36.1
+  version: "1.36.2"
 
 package:
   name: yamllint
   version: ${{ version }}
 
 source:
-  - target_directory: dist
-    url: https://pypi.org/packages/source/y/yamllint/yamllint-${{ version }}.tar.gz
-    sha256: a287689daaafc301a80549b2d0170452ebfdcabd826e3fe3b4c66e322d4851fa
-  - target_directory: src
-    url: https://github.com/adrienverge/yamllint/archive/refs/tags/v${{ version }}.tar.gz
-    sha256: fd7a606fda1cca34f9b29c6a9ccc272ae9a988dbe7d898d4e09f8e4258172e3e
+  url: https://pypi.org/packages/source/y/yamllint/yamllint-${{ version }}.tar.gz
+  sha256: c9ccc818659736e7b13f7e2f9c3c9bb9ac77445be13e789e7d843e92cb8428ef
 
 build:
   number: 0
   noarch: python
   script:
-    - cd dist
     - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
   python:
     entry_points:
@@ -43,25 +38,25 @@ tests:
       imports: yamllint
   - files:
       source:
-        - src/tests/
+        - tests/
     requirements:
       run:
         - pytest
         - pytest-cov
         - python ${{ python_min }}
         - if: win
-          then: m2-grep
+          then:
+            - m2-grep
     script:
       - yamllint --help
       - yamllint --version
       - yamllint --version | grep -iE "${{ version | replace('.', '\\.') }}"
-      - cd src
       - coverage run --source=yamllint --branch -m pytest -vv --color=yes --tb=long
       - coverage report --show-missing --skip-covered --fail-under=98
 
 about:
   license: GPL-3.0-or-later
-  license_file: dist/LICENSE
+  license_file: LICENSE
   summary: A linter for YAML files.
   homepage: https://github.com/adrienverge/yamllint
   documentation: https://yamllint.readthedocs.io
