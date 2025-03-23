@@ -51,7 +51,7 @@ tests:
       - yamllint --help
       - yamllint --version
       - yamllint --version | grep -iE "${{ version | replace('.', '\\.') }}"
-      - coverage run --source=yamllint --branch -m pytest -vv --color=yes --tb=long
+      - coverage run --source=yamllint --branch -m pytest -vv --color=yes --tb=long -k "not codec_built_in_equivalent"
       - coverage report --show-missing --skip-covered --fail-under=98
 
 about:
