@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "1.37.1"
+  version: "1.38.0"
 
 package:
   name: yamllint
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/y/yamllint/yamllint-${{ version }}.tar.gz
-  sha256: 81f7c0c5559becc8049470d86046b36e96113637bcbe4753ecef06977c00245d
+  sha256: 09e5f29531daab93366bb061e76019d5e91691ef0a40328f04c927387d1d364d
 
 build:
   number: 0
