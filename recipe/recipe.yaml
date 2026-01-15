@@ -3,6 +3,7 @@ schema_version: 1
 
 context:
   version: "1.38.0"
+  python_check_max: "3.14"
 
 package:
   name: yamllint
@@ -25,9 +26,9 @@ requirements:
   host:
     - pip
     - python ${{ python_min }}.*
-    - setuptools >=61
+    - setuptools >=77.0.3
   run:
-    - pathspec >=0.5.3
+    - pathspec >=1.0.0
     - python >=${{ python_min }}
     - pyyaml
 
@@ -37,7 +38,7 @@ tests:
       pip_check: true
       python_version:
         - ${{ python_min }}.*
-        - 3.13.*
+        - ${{ python_check_max }}.*
   - files:
       source:
         - tests/
@@ -46,13 +47,10 @@ tests:
         - pytest
         - pytest-cov
         - python ${{ python_min }}
-        - if: win
-          then:
-            - m2-grep
     script:
       - yamllint --help
       - yamllint --version
-      - yamllint --version | grep -iE "${{ version | replace('.', '\\.') }}"
+      - yamllint --version | python -c "assert __import__('sys').stdin.read() == '${{ version }}'"
       - coverage run --source=yamllint --branch -m pytest -vv --color=yes --tb=long -k "not codec_built_in_equivalent"
       - coverage report --show-missing --skip-covered --fail-under=98
 
