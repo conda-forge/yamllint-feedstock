@@ -14,7 +14,7 @@ source:
   sha256: 09e5f29531daab93366bb061e76019d5e91691ef0a40328f04c927387d1d364d
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script:
     - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
@@ -46,7 +46,7 @@ tests:
       run:
         - pytest
         - pytest-cov
-        - python ${{ python_min }}
+        - python ${{ python_min }}.*
     script:
       - yamllint --help
       - yamllint --version
